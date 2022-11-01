@@ -10,3 +10,13 @@ removed the options flag in startup.cs
   //"sslPort": 44389 comment out only lab launchsetting.json
 
   commit done 
+
+ 
+ i added  bootstrap and commit and push but unfortunately it didnt added on github
+ so im doing whole procees again
+ one weird thing i saw additional boostrap files in my css folder
+ then i delete additional files
+  Now theme applied from bootswatch.com with changes done on files layout.cshtml and login partial.cshtml
+
+  additional stylesheets added
+  Additional script- files added
