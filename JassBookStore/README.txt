@@ -20,3 +20,11 @@ removed the options flag in startup.cs
 
   additional stylesheets added
   Additional script- files added
+
+   now added dropdown    
+  and remove bs from  "data-bs-toggle" 
+  "data-toggle" this works perfects before that it nt working
+
+  site.css changed with given class site.css file
+  Now working perfect everything
+  now time to commit
