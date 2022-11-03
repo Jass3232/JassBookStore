@@ -34,11 +34,14 @@ removed the options flag in startup.cs
   Date 2022-11-03
   in the first attempt i got errors because i reinstall the sql server nu pacakge
   then i didnt commit 
+  deleted everything
+
    then started again
 
   Added 3 projects
 
   nugets packages installed
 
-  Relational and Entity frameworkcore
+  Relational and Entity frameworkcore only because sql server already in.
+  commit done
 
