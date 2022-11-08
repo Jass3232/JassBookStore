@@ -3,8 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using JassBookStore.Models;
 
-namespace JassBookStore.Data
+namespace JassBookStore.DataAccess.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

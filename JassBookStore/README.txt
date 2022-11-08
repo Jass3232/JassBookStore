@@ -45,3 +45,15 @@ removed the options flag in startup.cs
   Relational and Entity frameworkcore only because sql server already in.
   commit done
 
+  date 08-11-2022  1:53 Am
+
+  I select ASP.net empty to make 3 projects which is wrong selecion
+  so then i  delete old ones and start with new 3 projects  with class "library" to make new
+
+  added projects 
+   Relational and Entity frameworkcore only because sql server already in.
+  commit done
+  again
+  
+  project references done
+  sd.cs added
