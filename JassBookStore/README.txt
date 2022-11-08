@@ -57,3 +57,12 @@ removed the options flag in startup.cs
   
   project references done
   sd.cs added
+
+  11/08/2022 11:02am
+
+  using JassBookStore.Models.ViewModels; is missing in homecontroller thats why it build falied
+  now running smooth
+  Add > Areas> Customer   done
+  path specified for controller and view and moved into areas customer done
+  Add > Areas> Admin   done
+  upload git
