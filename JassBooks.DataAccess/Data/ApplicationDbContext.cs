@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using JassBookStore.Models;
+using JassBooks.Models;
 
 namespace JassBookStore.DataAccess.Data
 {
@@ -13,5 +14,8 @@ namespace JassBookStore.DataAccess.Data
             : base(options)
         {
         }
+        public DbSet<Category> Categories{ get; set; }
     }
+
 }
+    
