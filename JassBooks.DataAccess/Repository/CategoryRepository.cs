@@ -7,6 +7,7 @@ using JassBookStore.DataAccess.Data;
 using JassBooks.Models;
 
 namespace JassBooks.DataAccess.Repository
+
 {
    public class CategoryRepository: Repository<Category>, ICategoryRepository
     {
@@ -21,7 +22,7 @@ namespace JassBooks.DataAccess.Repository
             if (objFromDb!=null)
             {
                 objFromDb.Name = category.Name;
-                _db.SaveChanges();
+               
             }
         }
     }

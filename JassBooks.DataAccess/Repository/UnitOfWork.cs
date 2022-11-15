@@ -10,7 +10,7 @@ public class UnitOfWork : IUnitOfWork
     private readonly ApplicationDbContext _db;
 
     public ICategoryRepository Category { get; private set; }
-    public ISP_Call SP_Call { get; private set; }
+    public ISP_Call SP_Call { get; private set; }   
 
     public UnitOfWork(ApplicationDbContext db)
     {

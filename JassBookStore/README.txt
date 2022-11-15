@@ -102,3 +102,27 @@ Add Repository folder and subfolder IRepository
 
  
  create IUnitOfWork and UnitOfWork
+
+ 11/15/2022 1:02AM
+ Part 2.3 Category CRUD added
+ I added services.AddScoped<IUnitOfWork, UnitOfWork>(); in the startup.cs file
+
+ Added new MVC Controller in Area/Admin and gave it name of CategoryController.cs
+ Then I added a Area/View folder and inside it I added Index.cshtml file
+ In -Layout.cshtml file, move the 'Category' link to the Content management drop down.Now its showing in the drop list of it
+ Modified the index.cshtml  inorder to add the icons
+
+ Remove this code from given file and added it to the given javascript file
+
+ To perform CRUD operation, added the Upsert.cshtml file,copied given code in it,modified it
+ In the Index.cshtml file added the asp-action where its required
+
+
+ Add  view for CreateAndBacktoListButton 
+
+ Add view for EditAndBacktoListButton
+
+ Remove the _db.SaveChanges from the CategoryRepository.cs file and move the _unitOfWork.Save() method with the return RedirectToaction method. 
+
+ To perform delete operation Add the delete functionality in category.js 
+Add the Delete(url) functioncode 
