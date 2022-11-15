@@ -126,3 +126,5 @@ Add Repository folder and subfolder IRepository
 
  To perform delete operation Add the delete functionality in category.js 
 Add the Delete(url) functioncode 
+
+not working properly i had to  add to check /Admin/Category
