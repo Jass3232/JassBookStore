@@ -63,6 +63,42 @@ removed the options flag in startup.cs
   using JassBookStore.Models.ViewModels; is missing in homecontroller thats why it build falied
   now running smooth
   Add > Areas> Customer   done
-  path specified for controller and view and moved into areas customer done
+  path specified for controller and view ,home and moved into areas customer done
   Add > Areas> Admin   done
   upload git
+
+
+  11/13/2022 11:02pm
+   
+
+ run  Command add-migration AddDefaultIdentityMigration. Succeeded. 
+ 
+ File name: 20221111194841_AddDefaultIdentityMigration.cs created
+
+ then Update-Database Command
+
+ create a file name Category.cs in Models.
+
+  Add Category into DBContext file. TODO: run command add-migration AddCategoryToDb and update-database
+
+  11/14/2022 1:02AM
+
+
+  Part 2.2
+Add Repository folder and subfolder IRepository
+
+ Finaly Added  and modify CategoryRepository.cs and ICategoryRepository.cs
+
+
+
+ Add update method in CategoryRepository.cs
+
+ Create ISP_Call file and install Dapper package
+
+ 11/14/2022 1:00PM
+ Modified ISP_Call.cs
+
+ Modified SP_Call.cs, 
+
+ 
+ create IUnitOfWork and UnitOfWork
