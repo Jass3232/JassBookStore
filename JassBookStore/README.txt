@@ -45,7 +45,7 @@ removed the options flag in startup.cs
   Relational and Entity frameworkcore only because sql server already in.
   commit done
 
-  date 08-11-2022  1:53 Am
+  date 2022/11/08 1:53 Am
 
   I select ASP.net empty to make 3 projects which is wrong selecion
   so then i  delete old ones and start with new 3 projects  with class "library" to make new
@@ -58,7 +58,10 @@ removed the options flag in startup.cs
   project references done
   sd.cs added
 
-  11/08/2022 11:02am
+
+
+  2022/11/08
+  11:02am
 
   using JassBookStore.Models.ViewModels; is missing in homecontroller thats why it build falied
   now running smooth
@@ -68,7 +71,7 @@ removed the options flag in startup.cs
   upload git
 
 
-  11/13/2022 11:02pm
+ 2022/11/13 11:02pm
    
 
  run  Command add-migration AddDefaultIdentityMigration. Succeeded. 
@@ -95,7 +98,8 @@ Add Repository folder and subfolder IRepository
 
  Create ISP_Call file and install Dapper package
 
- 11/14/2022 1:00PM
+ 2022/11/14
+ 1:00PM
  Modified ISP_Call.cs
 
  Modified SP_Call.cs, 
@@ -103,7 +107,8 @@ Add Repository folder and subfolder IRepository
  
  create IUnitOfWork and UnitOfWork
 
- 11/15/2022 1:02AM
+ 2022/11/15
+ 1:02AM
  Part 2.3 Category CRUD added
  I added services.AddScoped<IUnitOfWork, UnitOfWork>(); in the startup.cs file
 
@@ -128,3 +133,8 @@ Add Repository folder and subfolder IRepository
 Add the Delete(url) functioncode 
 
 not working properly i had to  add to check /Admin/Category
+
+2022-11-21 
+1132 
+ i run  Command add-migration AddDefaultIdentityMigration. Succeeded. becaose create not working
+ i did migration again to create
