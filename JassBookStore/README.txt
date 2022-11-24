@@ -138,3 +138,20 @@ not working properly i had to  add to check /Admin/Category
 1132 
  i run  Command add-migration AddDefaultIdentityMigration. Succeeded. becaose create not working
  i did migration again to create
+
+
+
+
+ 2022-11-24
+ 1100
+
+
+ covertype.cs amd product.css added in model 
+
+ migration done after update failed
+  add-migration addProductToDb added
+
+
+  add-migration addValidationToProduct added
+
+
