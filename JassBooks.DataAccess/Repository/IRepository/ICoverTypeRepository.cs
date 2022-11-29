@@ -4,7 +4,6 @@ using System.Text;
 
 namespace JassBooks.DataAccess.Repository.IRepository
 {
-   public interface ICoverTypeRepository
-    {
+    public interface ICoverTypeRepository { 
     }
 }

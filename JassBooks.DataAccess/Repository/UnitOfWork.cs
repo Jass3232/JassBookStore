@@ -4,36 +4,35 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace JassBooks.DataAccess.Repository { 
-public class UnitOfWork : IUnitOfWork
+namespace JassBooks.DataAccess.Repository
 {
-    private readonly ApplicationDbContext _db;
-
-    public ICategoryRepository Category { get; private set; }
-      public  ICoverTypeRepository CoverType { get; private set; }
-
-    public    IProductRepository Product { get; private set; }
-        public ISP_Call SP_Call { get; private set; }   
-
-    public UnitOfWork(ApplicationDbContext db)
+    public class UnitOfWork : IUnitOfWork
     {
-        _db = db;
-        Category = new CategoryRepository(_db);
-           
-            SP_Call = new SP_Call(_db);
-            Product = new ProductRepository(_db);
+        private readonly ApplicationDbContext _db;
 
+        public ICategoryRepository Category { get; private set; }
+        public ISP_Call SP_Call { get; private set; }
+
+        public ICoverTypeRepository CoverType { get; private set; }
+        public IProductRepository Product { get; private set; }
+
+        public UnitOfWork(ApplicationDbContext db)
+        {
+            _db = db;
+            Category = new CategoryRepository(_db);
+            SP_Call = new SP_Call(_db);
             CoverType = new CoverTypeRepository(_db);
+           // Product = new ProductRepository(_db);
         }
 
-    public void Dispose()
-    {
-        _db.Dispose();
-    }
+        public void Dispose()
+        {
+            _db.Dispose();
+        }
 
-    public void Save() // all changes will be saved when the save method is called at the parent level
-    {
-        _db.SaveChanges();
+        public void Save() // all changes will be saved when the save method is called at the parent level
+        {
+            _db.SaveChanges();
+        }
     }
-}
 }

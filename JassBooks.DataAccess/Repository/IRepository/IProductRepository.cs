@@ -4,7 +4,7 @@ using System.Text;
 
 namespace JassBooks.DataAccess.Repository.IRepository
 {
-  public  interface IProduct
+  public  interface IProductRepository
     {
     }
 }
