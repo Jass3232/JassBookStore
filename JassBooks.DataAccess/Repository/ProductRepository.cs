@@ -1,12 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using JassBooks.DataAccess.Repository.IRepository;
+﻿using JassBooks.DataAccess.Repository.IRepository;
 using JassBooks.Models;
 using JassBookStore.DataAccess.Data;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
 namespace JassBooks.DataAccess.Repository
 {
-   public class ProductRepository 
+    public class ProductRepository : Repository<Product>, IProductRepository
     {
+        private readonly ApplicationDbContext _db;
+
+        public ProductRepository(ApplicationDbContext db) : base(db)
+        {
+            _db = db;
+        }
+
+        public void Update(Product product)
+        {
+            //throw new NotImplementedException();
+            //use .NET LINQ to retrieve the first or default category object
+            // then pass the id as a generic entity which matters the category ID
+            var objFromDb = _db.Products.FirstOrDefault(s => s.Id == product.Id);
+            if (objFromDb != null)//Save changes if not null
+            {
+                objFromDb.ImageUrl = product.ImageUrl;
+            }
+            objFromDb.Title = product.Title;
+            objFromDb.Description = product.Description;
+            objFromDb.ISBN = product.ISBN;
+            objFromDb.Author = product.Author;
+            objFromDb.ListPrice = product.ListPrice;
+            objFromDb.CategoryId = product.CategoryId;
+            objFromDb.CoverTypeId = product.CoverTypeId;
+        }
     }
 }

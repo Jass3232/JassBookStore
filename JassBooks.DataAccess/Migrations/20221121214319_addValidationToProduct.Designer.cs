@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JassBooks.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221124154001_AddCategoryToDb")]
-    partial class AddCategoryToDb
+    [Migration("20221121214319_addValidationToProduct")]
+    partial class addValidationToProduct
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.16")
+                .HasAnnotation("ProductVersion", "3.1.29")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -38,7 +38,7 @@ namespace JassBooks.DataAccess.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("JassBooks.Models.CoverType", b =>
+            modelBuilder.Entity("JassBooks.Models.Cover", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -52,7 +52,7 @@ namespace JassBooks.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CoverTypes");
+                    b.ToTable("Covers");
                 });
 
             modelBuilder.Entity("JassBooks.Models.Product", b =>
@@ -69,7 +69,7 @@ namespace JassBooks.DataAccess.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CoverTypeId")
+                    b.Property<int>("CoverId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -92,8 +92,6 @@ namespace JassBooks.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("CoverTypeId");
 
                     b.ToTable("Products");
                 });
@@ -306,9 +304,9 @@ namespace JassBooks.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("JassBooks.Models.CoverType", "CoverType")
+                    b.HasOne("JassBooks.Models.Cover", "Cover")
                         .WithMany()
-                        .HasForeignKey("CoverTypeId")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

@@ -146,7 +146,7 @@ not working properly i had to  add to check /Admin/Category
  1100
 
 
- covertype.cs amd product.css added in model 
+ Cover.cs amd product.css added in model 
 
  migration done after update failed
   add-migration addProductToDb added

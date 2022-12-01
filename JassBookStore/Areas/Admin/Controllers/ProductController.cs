@@ -1,15 +1,14 @@
-﻿using JassBookStore.Models.ViewModels;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using JassBooks.DataAccess.Repository.IRepository;
 using JassBooks.Models;
+using JassBooks.Models.ViewModels;
+using Microsoft.AspNetCore.Hosting;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.IO;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Logging;
+using System.IO;
 
 namespace JassBookStore.Areas.Admin.Controllers
 {
@@ -30,6 +29,8 @@ namespace JassBookStore.Areas.Admin.Controllers
             return View();
         }
 
+
+
         public IActionResult Upsert(int? id)
         {
             ProductVM productVM = new ProductVM()
@@ -40,7 +41,7 @@ namespace JassBookStore.Areas.Admin.Controllers
                     Text = i.Name,
                     Value = i.Id.ToString()
                 }),
-                CoverTypeList = _unitOfWork.CoverType.GetAll().Select(i => new SelectListItem
+                CoverTypeList = _unitOfWork.Cover.GetAll().Select(i => new SelectListItem
                 {
                     Text = i.Name,
                     Value = i.Id.ToString()
@@ -62,7 +63,7 @@ namespace JassBookStore.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Upsert(ProductVM ProductVM)
+        public IActionResult Upsert(ProductVM productVM)
         {
             if (ModelState.IsValid)
             {
@@ -117,7 +118,7 @@ namespace JassBookStore.Areas.Admin.Controllers
                     Text = i.Name,
                     Value = i.Id.ToString()
                 });
-                productVM.CoverTypeList = _unitOfWork.CoverType.GetAll().Select(i => new SelectListItem
+                productVM.CoverTypeList = _unitOfWork.Cover.GetAll().Select(i => new SelectListItem
                 {
                     Text = i.Name,
                     Value = i.Id.ToString()
@@ -135,7 +136,7 @@ namespace JassBookStore.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var allObj = _unitOfWork.Product.GetAll(includeProperties: "Category,CoverType");
+            var allObj = _unitOfWork.Product.GetAll(includeProperties:"Category,CoverType");
             return Json(new { data = allObj });
         }
 

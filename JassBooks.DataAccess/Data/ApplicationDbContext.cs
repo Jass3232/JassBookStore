@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using JassBooks.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using JassBookStore.Models;
-using JassBooks.Models;
 
 namespace JassBookStore.DataAccess.Data
 {
@@ -14,11 +13,8 @@ namespace JassBookStore.DataAccess.Data
             : base(options)
         {
         }
-        public DbSet<Category> Categories{ get; set; }
-        public DbSet<CoverType> CoverTypes { get; set; }
-        public DbSet<Product>Products { get; set; }
-   
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<CoverType> Covers { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
-
 }
-    

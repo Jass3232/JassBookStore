@@ -2,7 +2,7 @@
 
 namespace JassBooks.DataAccess.Migrations
 {
-    public partial class AddCategoryToDb : Migration
+    public partial class addProductToDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

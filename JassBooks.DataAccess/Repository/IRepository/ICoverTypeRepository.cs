@@ -1,9 +1,13 @@
-﻿using System;
+﻿using JassBooks.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace JassBooks.DataAccess.Repository.IRepository
 {
-    public interface ICoverTypeRepository { 
+    public interface ICoverTypeRepository : IRepository<CoverType>
+    {
+        void Update(CoverType coverType);
     }
 }
+

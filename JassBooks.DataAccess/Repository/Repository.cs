@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using JassBooks.DataAccess.Repository.IRepository;
+﻿using JassBooks.DataAccess.Repository.IRepository;
 using JassBookStore.DataAccess.Data;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using Microsoft.EntityFrameworkCore;
-
-
-
+using System.Text;
 
 namespace JassBooks.DataAccess.Repository
 {
-    // Implements all the methods of the IRepository
     public class Repository<T> : IRepository<T> where T : class
     {
         // modify the database w/ the db context

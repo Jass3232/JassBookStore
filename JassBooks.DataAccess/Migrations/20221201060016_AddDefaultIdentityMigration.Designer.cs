@@ -4,14 +4,16 @@ using JassBookStore.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JassBooks.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221201060016_AddDefaultIdentityMigration")]
+    partial class AddDefaultIdentityMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,7 +38,7 @@ namespace JassBooks.DataAccess.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("JassBooks.Models.CoverType", b =>
+            modelBuilder.Entity("JassBooks.Models.Cover", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -67,7 +69,7 @@ namespace JassBooks.DataAccess.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CoverTypeId")
+                    b.Property<int>("CoverId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -91,7 +93,7 @@ namespace JassBooks.DataAccess.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("CoverTypeId");
+                    b.HasIndex("CoverId");
 
                     b.ToTable("Products");
                 });
@@ -304,9 +306,9 @@ namespace JassBooks.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("JassBooks.Models.CoverType", "CoverType")
+                    b.HasOne("JassBooks.Models.Cover", "Cover")
                         .WithMany()
-                        .HasForeignKey("CoverTypeId")
+                        .HasForeignKey("CoverId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
