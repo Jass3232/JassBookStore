@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using JassBooks.DataAccess.Repository.IRepository;
+﻿using JassBooks.DataAccess.Repository.IRepository;
 using JassBooks.Models;
-
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,21 +12,26 @@ namespace JassBookStore.Areas.Admin.Controllers
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
+
         public CategoryController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
+
         public IActionResult Index()
         {
             return View();
         }
+
         public IActionResult Upsert(int? id)
         {
             Category category = new Category();
-            if(id == null)
+            if (id == null)
             {
+                // this is for create
                 return View(category);
             }
+            // this is for edit
             category = _unitOfWork.Category.Get(id.GetValueOrDefault());
             if (category == null)
             {
@@ -36,46 +40,49 @@ namespace JassBookStore.Areas.Admin.Controllers
             return View(category);
         }
 
-        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Upsert(Category category)
-         {
-             if (ModelState.IsValid)
-             {
-                 if(category.Id == 0)
-                 {
-                     _unitOfWork.Category.Add(category);
+        {
+            if (ModelState.IsValid)
+            {
+                if (category.Id == 0)
+                {
+                    _unitOfWork.Category.Add(category);
+                }
+                else
+                {
+                    _unitOfWork.Category.Update(category);
+                }
+                _unitOfWork.Save();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(category);
+        }
 
-                 }
-                 else
-                 {
-                     _unitOfWork.Category.Update(category);
-                 }
-                 _unitOfWork.Save();
-                 return RedirectToAction(nameof(Index));
-             }
-             return View(category);
-         } 
-        //API Calls Here
-        #region
+        #region API CALLS
+
+        [HttpGet]
         public IActionResult GetAll()
         {
             var allObj = _unitOfWork.Category.GetAll();
             return Json(new { data = allObj });
         }
+
         [HttpDelete]
         public IActionResult Delete(int id)
         {
             var objFromDb = _unitOfWork.Category.Get(id);
             if (objFromDb == null)
             {
-                return Json(new { success = false, message = "Error while Deleting" });
+                return Json(new { success = false, message = "Error while deleting" });
             }
             _unitOfWork.Category.Remove(objFromDb);
             _unitOfWork.Save();
-            return Json(new { success = true, message = "Delete Successfull" });
+            return Json(new { success = true, message = "Delete Successful" });
         }
+
         #endregion
+
     }
 }

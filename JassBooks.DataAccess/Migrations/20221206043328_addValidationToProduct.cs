@@ -2,7 +2,7 @@
 
 namespace JassBooks.DataAccess.Migrations
 {
-    public partial class AddDefaultIdentityMigration : Migration
+    public partial class addValidationToProduct : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

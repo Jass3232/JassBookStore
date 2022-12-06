@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace JassBookStore.DataAccess.Data
+namespace JassBooks.DataAccess.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
@@ -14,7 +14,7 @@ namespace JassBookStore.DataAccess.Data
         {
         }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<CoverType> Covers { get; set; }
+        public DbSet<CoverType> CoverTypes { get; set; }
         public DbSet<Product> Products { get; set; }
     }
 }

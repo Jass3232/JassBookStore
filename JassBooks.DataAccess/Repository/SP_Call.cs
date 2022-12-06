@@ -1,27 +1,27 @@
-﻿using JassBooks.DataAccess.Repository.IRepository;
-using JassBookStore.DataAccess.Data;
+﻿using JassBooks.DataAccess.Data;
+using JassBooks.DataAccess.Repository.IRepository;
 using Dapper;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Data.SqlClient;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace JassBooks.DataAccess.Repository
 {
     public class SP_Call : ISP_Call
     {
-        // access the ddtabase
         private readonly ApplicationDbContext _db;
-        private static string ConnectionString = "";  // needed to call stored procedures
-        
-        // Constructor to open SQL connection
+        private static string ConnectionString = "";
+
         public SP_Call(ApplicationDbContext db)
         {
             _db = db;
             ConnectionString = db.Database.GetDbConnection().ConnectionString;
         }
+
         public void Dispose()
         {
             _db.Dispose();
@@ -54,11 +54,13 @@ namespace JassBooks.DataAccess.Repository
                 var item1 = result.Read<T1>().ToList();
                 var item2 = result.Read<T2>().ToList();
 
+
                 if (item1 != null && item2 != null)
                 {
                     return new Tuple<IEnumerable<T1>, IEnumerable<T2>>(item1, item2);
                 }
             }
+
             return new Tuple<IEnumerable<T1>, IEnumerable<T2>>(new List<T1>(), new List<T2>());
         }
 
@@ -77,7 +79,7 @@ namespace JassBooks.DataAccess.Repository
             using (SqlConnection sqlCon = new SqlConnection(ConnectionString))
             {
                 sqlCon.Open();
-                return (T)Convert.ChangeType(sqlCon.ExecuteScalar<T>(procedureName, param, commandType: System.Data.CommandType.StoredProcedure),typeof(T));
+                return (T)Convert.ChangeType(sqlCon.ExecuteScalar<T>(procedureName, param, commandType: System.Data.CommandType.StoredProcedure), typeof(T));
             }
         }
     }

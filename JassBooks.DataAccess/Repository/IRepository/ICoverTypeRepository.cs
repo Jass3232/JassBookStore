@@ -1,7 +1,9 @@
 ﻿using JassBooks.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace JassBooks.DataAccess.Repository.IRepository
 {
@@ -10,4 +12,3 @@ namespace JassBooks.DataAccess.Repository.IRepository
         void Update(CoverType coverType);
     }
 }
-

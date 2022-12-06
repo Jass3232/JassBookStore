@@ -1,17 +1,20 @@
 ﻿@model JassBooks.Models.CoverType
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var title = "Add Cover Type";
+    var title = "Create Cover Type";
 }
+
 <form method="post">
     <div class="row p-3 border">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        @if(Model.Id != 0)
+        @if (Model.Id != 0)
         {
+            // edit
             title = "Edit Cover Type";
         }
         <div class="col-12 border-bottom">
-            <h2 class="text-primary">Edit a Cover Type</h2>
+            <h2 class="text-primary">@title</h2>
         </div>
         <div class="col-8 pt-4">
             <div class="form-group row">
@@ -25,19 +28,20 @@
             </div>
             <div class="form-group row">
                 <div class="col-8 offset-4">
-                    @if(Model.Id != 0)
+                    @if (Model.Id != 0)
                     {
                         <partial name="_EditAndBackToListButton" model="Model.Id" />
                     }
                     else
                     {
-                        <partial name="_CreateAndBackToListButton" model="Model.Id" />
+                        <partial name="_CreateAndBackToListButton" />
                     }
                 </div>
             </div>
         </div>
     </div>
 </form>
-@section Scripts {
-<partial name="_ValidationScriptsPartial" />
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
 }

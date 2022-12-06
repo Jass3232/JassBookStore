@@ -1,10 +1,11 @@
-﻿using JassBooks.DataAccess.Repository.IRepository;
+﻿using JassBooks.DataAccess.Data;
+using JassBooks.DataAccess.Repository.IRepository;
 using JassBooks.Models;
-using JassBookStore.DataAccess.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace JassBooks.DataAccess.Repository
 {
@@ -19,14 +20,10 @@ namespace JassBooks.DataAccess.Repository
 
         public void Update(Category category)
         {
-            //throw new NotImplementedException();
-            //use .NET LINQ to retrieve the first or default category object
-            // then pass the id as a generic entity which matters the category ID
             var objFromDb = _db.Categories.FirstOrDefault(s => s.Id == category.Id);
-            if (objFromDb != null)//Save changes if not null
+            if (objFromDb != null)
             {
                 objFromDb.Name = category.Name;
-                // _db.SaveChanges();
             }
         }
     }

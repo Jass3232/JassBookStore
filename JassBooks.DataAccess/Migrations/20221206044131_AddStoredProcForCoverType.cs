@@ -2,7 +2,7 @@
 
 namespace JassBooks.DataAccess.Migrations
 {
-    public partial class addCoverTypeToDb : Migration
+    public partial class AddStoredProcForCoverType : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

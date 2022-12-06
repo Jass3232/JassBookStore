@@ -1,14 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using JassBooks.DataAccess.Repository.IRepository;
+﻿using JassBooks.DataAccess.Repository.IRepository;
 using JassBooks.Models;
 using JassBooks.Models.ViewModels;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using System.IO;
 
 namespace JassBookStore.Areas.Admin.Controllers
 {
@@ -29,8 +29,6 @@ namespace JassBookStore.Areas.Admin.Controllers
             return View();
         }
 
-
-
         public IActionResult Upsert(int? id)
         {
             ProductVM productVM = new ProductVM()
@@ -41,7 +39,7 @@ namespace JassBookStore.Areas.Admin.Controllers
                     Text = i.Name,
                     Value = i.Id.ToString()
                 }),
-                CoverTypeList = _unitOfWork.Cover.GetAll().Select(i => new SelectListItem
+                CoverTypeList = _unitOfWork.CoverType.GetAll().Select(i => new SelectListItem
                 {
                     Text = i.Name,
                     Value = i.Id.ToString()
@@ -84,7 +82,7 @@ namespace JassBookStore.Areas.Admin.Controllers
                             System.IO.File.Delete(imagePath);
                         }
                     }
-                    using (var filesStreams = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+                    using(var filesStreams = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
                     {
                         files[0].CopyTo(filesStreams);
                     }
@@ -118,7 +116,7 @@ namespace JassBookStore.Areas.Admin.Controllers
                     Text = i.Name,
                     Value = i.Id.ToString()
                 });
-                productVM.CoverTypeList = _unitOfWork.Cover.GetAll().Select(i => new SelectListItem
+                productVM.CoverTypeList = _unitOfWork.CoverType.GetAll().Select(i => new SelectListItem
                 {
                     Text = i.Name,
                     Value = i.Id.ToString()
