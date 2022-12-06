@@ -155,3 +155,49 @@ not working properly i had to  add to check /Admin/Category
   add-migration addValidationToProduct added
 
 
+  2022-11-24  3:55PM
+  Part 3
+
+ done CoverType.cs 
+ done CoverTypeRepository.cs 
+done ICoverTypeRepository.cs 
+done CoverTypeRepository to UnitOfWork
+done ICoverTypeRepository to IUnitOfWork
+
+
+add-migration addCoverTypeToDb
+updated database 
+
+
+
+created cover.js for the Covers table
+created CoverTypeController.cs in /Areas/Admin/Controllers directory
+ added Index.cshtml and Upsert.cshtml to /Areas/Admin/Views/CoverType
+
+
+
+2022-11-27  10:30PM
+
+
+add migration addProductToDb
+- updated database
+- added validation to Product class (Product.cs)
+Added    Add migration addValidationToProduct
+updated database done
+ ProductRepository.cs added
+- added IProductRepository interface (IProductRepository.cs)
+- added ProductRepository to UnitOfWork
+- added IProductRepository to IUnitOfWork
+
+
+
+2022-12-05 10:39Pm
+
+
+part 4
+
+problem with nav bar solved with view inside jassbookstore
+cover type files relaced but still error
+
+2022-12-06 10:00Pm
+forget to commit done 
