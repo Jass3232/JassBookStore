@@ -50,7 +50,7 @@ namespace JassBooks.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CoverTypes");
+                    b.ToTable("Covers");
                 });
 
             modelBuilder.Entity("JassBooks.Models.Product", b =>

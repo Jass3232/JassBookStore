@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JassBooks.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221206043814_AddCoverTypeToDb")]
-    partial class AddCoverTypeToDb
+    [Migration("20221209035236_addCoverTypeToDb")]
+    partial class addCoverTypeToDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,7 +52,7 @@ namespace JassBooks.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CoverTypes");
+                    b.ToTable("Covers");
                 });
 
             modelBuilder.Entity("JassBooks.Models.Product", b =>

@@ -6,13 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace JassBooks.Models
+
 {
     public class CoverType
     {
         [Key]
         public int Id { get; set; }
+
+        [Display(Name = "CoverType name")]
         [Required]
-        [Display(Name = "Cover Type")]
         [MaxLength(50)]
         public string Name { get; set; }
     }

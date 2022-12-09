@@ -14,7 +14,7 @@ namespace JassBooks.DataAccess.Data
         {
         }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<CoverType> CoverTypes { get; set; }
+        public DbSet<CoverType> Covers { get; set; }
         public DbSet<Product> Products { get; set; }
     }
 }

@@ -201,3 +201,15 @@ cover type files relaced but still error
 
 2022-12-06 10:00Pm
 forget to commit done 
+
+2022-12-09 1:00am
+
+Problem with cover type and display issue 
+so i replaced some files with part 4 
+changed files index.cshtml, upsert, product.js,cover.js
+
+some files names issue i chnaged them
+
+Now Everthing working great without single issue
+
+Final commit
