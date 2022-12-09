@@ -212,4 +212,6 @@ some files names issue i chnaged them
 
 Now Everthing working great without single issue
 
+
+Uploaded to azure but not working overthere
 Final commit
